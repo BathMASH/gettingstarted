@@ -1,0 +1,1143 @@
+
+
+%-----------------------------preamble begins----------------------------
+
+
+%This is a comment and will not form part of the final document. In this document comments will be used to explain what is going on. In your own documents you might use comments to make notes to yourself. 
+
+%The first non-comment line of your document should supply the LaTeX document class to be used and some optional arguments. As this is about the starting point for writing LaTeX we will not consider the variety of document formats available. We use the 'article' class which is suitable for most short documents, optional arguments define the font size of the paragraph text and paper size. The only font sizes available in the article class are 10pt, 11pt and 12pt. There is a class called extarticle which is the same as article but also allows you to use 8pt, 9pt, 14pt, 17pt and 20pt. 
+\documentclass[a4paper,14pt]{extarticle}
+%After the documentclass is defined there is a portion of the file called the preamble. In this section we import 'packages' which allow us to achieve certain tasks. 
+
+%The geometry package enables us to make changes to the page layout. In this case we have given the commands for a4paper and set the margins to be 2cm.
+\usepackage[a4paper,margin=2cm]{geometry}
+
+%This package alters how paragraphs are displayed so that there is no indent and there is white space between each paragraph.
+\usepackage{parskip}
+
+%The hyperref package defines commands which ensure any web links you include are incorporated correctly and can be clicked on in your final document. It also makes the table of contents and equation numbers clickable so you can skip between parts of the document.
+\usepackage{hyperref}
+
+%The graphicx package is one of the main packages for incorporating images and the only one which will be covered in this introduction. Which formats of graphicx can be included depends on how your final document is being compiled. This introduction assumes you are using writelatex, sharelatex or the pdflatex command. In these cases we can include: JPG, PNG and PDF which is enough for basic documents.
+\usepackage{graphicx}
+
+%The amsmath and amssymb packages are packages of mathematics commands and symbols defined by the American Mathematical Society. They make writing some structures and symbols easier. In the document below we will say when something uses one of these packages. Note that we can load more than one package at once.
+\usepackage{amsmath,amssymb}
+
+%The below loads a script maths font
+\usepackage[mathscr]{eucal}
+
+%We also place command definitions in the preamble
+\newcommand{\abs}{\operatorname{abs}}
+
+%Finally, we define the title, author and date, if wished, in the preamble. Inclusion of graphics is covered later in the document and is used here to include some necessary graphics. 
+\title{
+\includegraphics[width=\textwidth]{top-2colsgreen-community}
+\\
+Getting started with \LaTeX~reference document}
+\author{\copyright ~ Emma Cliffe, University of Bath}
+\date{}
+
+
+%-----------------------------preamble ends------------------------------
+
+
+%The end of the preamble is the begin document command. At the end of the document there should be a matching end document command. This define the document environment.  
+\begin{document}
+
+
+%--------------------------------Title begins----------------------------
+
+
+%These lines change the font of the English text for those who prefer a sans-serif font
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+
+%The maketitle command will use the title, author and date information you provided and create a title. You can only call this command once in a document. 
+\maketitle
+
+Reviewer:\qquad Calvin James Smith, University of Reading
+
+%Input of images is covered later in the document, it is used here to include a necessary image
+\begin{center}
+\includegraphics[width=0.25\textwidth]{by-nc-sa_eu}
+
+%Inclusion of web addresses is covered later in the document and is used here to include a necessary link.
+\url{www.mathcentre.ac.uk}
+\end{center}
+
+
+%---------------------Table of contents begins---------------------------
+
+
+%The next structure we might want in a document is a table of contents. This is automatically generated from the commands which define the numbered section, subsection and subsubsections in the document. If you don't have any of these then the table of contents will be empty.
+\tableofcontents
+
+
+%------------------------------Content begins----------------------------
+
+
+%In LaTeX we use commands to define the structure of the document. LaTeX interprets these commands when compiling. Most structure is defined within environments which begin and end. The main exceptions to this are commands which split the document up into sections, subsections and subsubsections. The other exception is paragraphs of text which are not of any particular kind e.g. not part of a list, table etc. Below we declare the start of our first section.
+\section{Structuring content}
+
+%And our first subsection. Notice that these are numbered automatically. 
+\subsection{Paragraphs}
+
+%The easiest type of content to insert into a LaTeX document is text in paragraphs. 
+Now is a good time to note that if you are reading the PDF output of this reference guide you cannot see all of the information! There are many lines of set-up prior to this and comments within the \LaTeX~ which you cannot see in the output. To use the full reference guide you should look at the \LaTeX~ itself alongside the PDF output. Do this now and read to this point in the \LaTeX. This will ensure you understand the next paragraph! 
+
+%To start a new paragraph we must either leave a completely blank line
+We have used the parskip package so the paragraphs are not indented and have white space between them --- in case you find this easier to read. The default behaviour is to indent each paragraph and to leave no white space. To see what this looks like comment out:
+%Below I use the verbatim environment to quote text exactly as it appears. More on this later!
+\begin{verbatim}
+\usepackage{parskip}
+\end{verbatim}
+This line is in the preamble near the start of the document. Add a percent symbol to the start of the line to comment it out. 
+
+\subsection{Changing the font}
+
+The family of fonts used by default is a family called Computer Modern. You may not like how this looks. Changing the font of the document is not easy but it is possible. 
+
+%Notice the asterisk after the subsubsection command below. This creates a heading that is not numbered and which will not appear in the table of contents.
+\subsubsection*{Helvetica vs Computer Modern}
+
+In this document the font of the non-mathematical text has been changed to a sans-serif font similar to Arial, called Helvetica, in case you find this easier to read. To change it back to the \LaTeX~ default of Computer Modern comment out the lines:
+\begin{verbatim}
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\end{verbatim}
+These lines are just after the begin document command. To comment them out add a percent symbol to the start of each line. 
+
+\subsection{Emphasis}
+
+%The commands used below do not work in mathematical text. Other methods are used to type mathematical fonts. This is covered later. 
+We can emphasize the text using \textbf{bold}, \textit{italics} or \texttt{typewriter font}. The commands used are:
+\begin{verbatim}
+\textbf{bold}
+\textit{italics}
+\texttt{typewriter font}
+\end{verbatim}
+
+\subsection{Verbatim}
+
+%The \verb command can only be used for short pieces of text. You may need to change how it is used if the text you wish to write verbatim contains an equals sign.
+To quote computer code or output from mathematical software use the verbatim environment:
+\begin{verbatim}
+Layout is 
+  preserved.
+\end{verbatim}
+
+%In the \verb command below the text between matching delimiters is written verbatim. In this case the matching delimiters are equals symbols. If your text included an equals symbol you would have to use something else! For example \verb-1=2-
+Look at the \LaTeX~ to see how the above was achieved. For short pieces within a paragraph use the \verb=\verb= command.  
+
+\subsection{Lists}
+
+To write a bullet point or numbered list we write a list of items within an appropriate environment. Environments start with a begin command and end with an end command. Look at the \LaTeX~ to see how the below are encoded.  
+
+\subsubsection{Bullet point}
+
+%You must use the American spelling of itemise! You can change the bullet point symbols but this is beyond the scope of this tutorial.
+\begin{itemize}
+\item Point 1
+\item Point 2
+\begin{itemize}
+\item Sublist
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Numbered}
+
+%You can change the numbering but this is beyond the scope of this tutorial. 
+\begin{enumerate}
+\item Point 1
+\begin{enumerate}
+\item Sublist
+\end{enumerate}
+\item A final point
+\end{enumerate}
+
+\subsubsection*{Mixing bullet points and numbered lists}
+
+You can mix bullet point and numbered lists:
+\begin{itemize}
+\item Itemize first
+\begin{enumerate}
+\item Numbered sub-list
+\item Second item
+\end{enumerate}
+\item Another bullet point
+\end{itemize}
+
+\subsection{Tables}
+
+There are many ways to create a table in \LaTeX. We create a simple example table. Once you can create simple tables you will find it easier to understand other methods. Tables with complex layout or which span more than one page need specialist packages. The particular table syntax used here is not always what you want but has been chosen as it is least likely to result in errors! 
+
+%We can center the tabular environment by including it in a center environment. Note the American spelling of center.
+\begin{center}
+%We start the tabular environment and declare that it will have a vertical line, followed by two cells each of width 0.45 the textwidth of the document. These cells contain text formatted as a paragraph (p). This formatting and declaration of width will minimise issues with table contents and content running off the right hand side of the page. This is not the only way to encode a table but is a 'safe' starting point.  
+\begin{tabular}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+%hline creates a horizontal line
+\hline
+%Each line of the table contains the content for a cell, then & then the next cell and then a newline \\
+We can put \begin{itemize} \item maths, \item paragraphs, \item lists etc.\end{itemize} in this kind of table --- this is not always the case! & \begin{verbatim}
+Some verbatim text and 
+an equation below...
+\end{verbatim} \par \[ax^2 + bx + c = 0\] \\
+\hline
+There are many different tables that allow complex behaviour and control but they are beyond the scope of this document & \bigskip \begin{center}This example will enable you to create basic tables. Look at the \LaTeX~ to see how it was created.\end{center} \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Images}
+
+Again, we will show only one way of including images. This which will work for images of the format JPG, PNG and PDF. For most undergraduates this will be sufficient. If not you will be well placed to understand more complex image inclusion once you can use this method. 
+
+To include an image we first need to put the file somewhere that \LaTeX~ can find. Each time \LaTeX~ compiles the document it will include the image. You should take care not to delete the image file or to move it to another location or filename. If you do then \LaTeX~ will no longer be able to compile the document. 
+
+In Overleaf you must upload an image so it is available. To do this click on the PROJECT button in the top left so you can see the file listing on the left hand side. Click Add files... and select Upload from Computer. Drag you JPG, PNG or PDF image to upload it. You should see it appear on the left.
+
+Look at the \LaTeX~ to see how the image below is included.
+
+%We can control the size of the image by setting the width equal to 0.8 times the text width of the document.
+\includegraphics[width=0.8\textwidth]{sigma-logo.png}
+
+\subsection{Citations and bibliography}
+
+When quoting another or referencing the work of another more generally it is usual to cite them in the text and include a bibliography of cited works at the end of the document. There are two ways to manage cited works in \LaTeX~ and we will look at the simpler one which is suitable for short documents at undergraduate level. 
+
+First we need to include an entry in the bibliography. For this we need to create the bibliography and add an appropriate bibitem to it. The code for this is:
+\begin{verbatim}
+\begin{thebibliography}{99}
+\bibitem{latex}
+LaTeX Project, \emph{\LaTeX\ --- A document preparation system}, 
+online at \url{http://www.latex-project.org/}
+
+\bibitem{ctan}
+CTAN, \emph{Comprehensive TeX Archive Network}, 
+online at \url{http://www.ctan.org/}
+
+\end{thebibliography}
+\end{verbatim}
+This is placed at the end of the document but before the appendices. Scroll down through the \LaTeX~ and find it. Look at how it appears in the PDF. 
+
+To reference we make a citation by using the command \verb=\cite= applied to the item names of the items to be cited. For instance: \cite{latex,ctan}. Look in the \LaTeX~ to see how this was achieved. 
+
+\section{Mathematics}
+
+So far we haven't written any mathematics! All of the above is to ensure that you have the basics of document creation available to you. We will not look at all ways of formatting equations but some of the most important commands. Once you are comfortable with these you will find it easier to understand information about other options. 
+
+The most basic way to include an equation is 'inline', that is, within the text. The second basic method is to create an equation displayed on a line alone.  
+
+%The slash-open-parenthesis starts math mode. The slash-close-parenthesis ends math mode. In between we have some mathematics. Notice that the hat symbol (shift 6) creates a superscript.
+Equations may be within text: \(x\) or displayed on a line alone: \[x+y.\] 
+
+%It is convention to place equations which will be displayed on a line alone on a newline to enhance readability. However, the output document will render identically.   
+The above could have been created by typing:
+\begin{verbatim}
+Equations may be within text: \(x\) or displayed on a line alone: 
+\[x+y.\] 
+\end{verbatim}
+or, even easier to read:
+\begin{verbatim}
+Equations may be within text: \(x\) or displayed on a line alone: 
+\[
+x+y.
+\] 
+\end{verbatim}
+
+
+\subsection{Basic structures and symbols}
+
+Alphabetic and numerical keyboard characters can be input into equations directly, as can: 
+\begin{verbatim}
+. , ? ! + - = < > ( ) [ ] |
+\end{verbatim}
+
+Precede percent symbol, dollar and curly braces with a backslash: 
+\begin{verbatim}
+\% \$ \{ \} 
+\end{verbatim}
+This is because the percent symbol alone comments out the remainder of the line, dollar is an older way to enter mathematics mode and braces are used in \LaTeX~ commands. 
+
+\subsubsection{Multiplication symbols}
+
+There are two multiplication symbols you might need:
+\begin{verbatim}
+\[
+2\times 3,\ 2\cdot 3
+\]
+\end{verbatim}
+Notice the backslash space in between the equations. This creates white space. 
+\[
+2\times 3,\ 2\cdot 3
+\]
+
+\subsubsection{Superscripts and subscripts}
+
+Superscripts use caret and subscripts use underscore:
+\begin{verbatim}
+\[
+a^{b+c},\quad (a+b)^{(c+d)},\qquad a_2,\quad (a+b)_{(i+j)}
+\]
+\end{verbatim}
+Notice the commands \verb=\quad= and \verb=\qquad=. These are also spacing commands. 
+\[
+a^{b+c},\quad (a+b)^{(c+d)},\qquad a_2,\quad (a+b)_{(i+j)}
+\]
+
+
+\subsubsection{Fractions}
+
+Fractions use the frac structure:
+\begin{verbatim}
+\[
+\frac{1}{2}
+\]
+\end{verbatim}
+Notice that braces are used to group together inputs to the commands, they do not appear in output PDF.
+\[
+\frac{1}{2}
+\]
+
+\subsubsection{Roots}
+
+Roots use the sqrt structure:
+\begin{verbatim}
+\[
+\sqrt{2}, \quad \sqrt[n]{2}
+\]
+\end{verbatim}
+Notice that while sqrt stands for square root the command is also used to write other roots.
+\[
+\sqrt{2}, \quad \sqrt[n]{2}
+\]
+
+\subsubsection{Accents}
+
+You can add accents such as a bar: 
+\begin{verbatim}
+\[
+\bar{x}
+\] 
+\end{verbatim}
+Which will look like:
+\[
+\bar{x}
+\] 
+A list of available accents is available in the Appendix at the end of this document. You will find other tables and lists of commonly required commands there. These will supplement those specifically introduced in the examples. 
+
+\subsubsection{Examples: Building up equations}
+
+To build up the equation:
+\[
+\bar{x}=\frac{x_1+x_2+x_3+x_4+x_5}{5}
+\]
+We type:
+\begin{verbatim}
+\[
+\bar{x}=\frac{x_1+x_2+x_3+x_4+x_5}{5}
+\]
+\end{verbatim}
+
+And to create:
+\[
+x = \frac{-b\pm \sqrt{b^2-4ac}}{2a}
+\]
+we type:
+\begin{verbatim}
+\[
+x = \frac{-b\pm \sqrt{b^2-4ac}}{2a}
+\]
+\end{verbatim}
+Notice that the plus-minus symbol is encoded using \verb=\pm=. In the next section you will learn how to locate a symbol name if you do not know it. 
+
+\subsection{A wide range of symbols and functions}
+
+\subsubsection{Symbols}
+
+Type backslash followed by the symbol name e.g. \verb=\leq= is the \emph{less than or equal to} symbol:
+\[
+x \leq y
+\]
+
+A list of commonly required symbols is available in the Appendix at the end of this document. You will find other tables and lists there also. These will supplement those specifically introduced in the examples. 
+
+%Notice how web addresses are encoded in the below. If the hyperref package is included in the preamble then these are 'clickable' links in the final PDF. 
+If a symbol or structure you require is not present then you might find the the Comprehensive \LaTeX~ Symbol List useful. This is available online at \url{http://www.ctan.org/tex-archive/info/symbols/comprehensive/}. It can be hard to locate symbols in this guide, \emph{Detexify}, available online at \url{http://detexify.kirelabs.org/classify.html} can search the guide based on a handwritten input. 
+
+\subsubsection{Functions}
+
+Type backslash followed by the function name e.g. 
+\begin{verbatim}
+\[
+\sin x,\ \sin^{-1}x
+\]
+\end{verbatim}
+produces:
+\[
+\sin x,\ \sin^{-1}x
+\]
+
+Not all function names are available. You can create your own using the newcommand. Scroll up to the preamble of the \LaTeX~ input and find the line
+\begin{verbatim}
+\newcommand{\abs}{\operatorname{abs}}
+\end{verbatim}
+This creates a new command called \verb=\abs=. The command will create an operator named abs which we can now use:
+\[
+\abs x
+\]
+
+
+The \emph{macro} \verb=\newcommand= has far wider uses but these are beyond the scope of this introduction. 
+
+\subsubsection{Greek}
+
+To write Greek letters type backslash followed by the symbol name e.g. 
+\begin{verbatim}
+\[
+\delta,\ \Delta
+\]
+\end{verbatim}
+Notice that this is case sensitive:
+\[
+\delta,\ \Delta
+\]
+
+\subsubsection{Mathematical fonts}
+
+To write letters or a group of letters in a mathematical font type backslash followed by the name then the letter in braces (upper case only):
+\begin{verbatim}
+\[
+\mathcal{R},\ \mathscr{R},\ \mathfrak{R},\ \mathbb{R} 
+\]
+\end{verbatim}
+produces
+\[
+\mathcal{R},\ \mathscr{R},\ \mathfrak{R},\ \mathbb{R} 
+\]
+
+Bold can be applied to upper and lower case text:
+\begin{verbatim}
+\[
+\mathbf{R}
+\] 
+\end{verbatim}
+produces
+\[
+\mathbf{R}, \mathbf{r}
+\] 
+
+\subsection{Examples: Standard differentiation notation}
+
+Fraction structure is used to encode the standard differentiation notation \(\frac{df}{dx}\). Hence it is written:
+\begin{verbatim}
+\frac{df}{dx}
+\end{verbatim}
+
+The notation automatically enlarges in a display equation. To write:
+\[
+\frac{d}{d\theta}(\sin^{-1}\theta) = \frac{1}{\sqrt{1-\theta^2}} 
+\]
+we type
+\begin{verbatim}
+\[
+\frac{d}{d\theta}(\sin^{-1}\theta) = \frac{1}{\sqrt{1-\theta^2}} 
+\]
+\end{verbatim}
+
+
+\subsubsection{Standard partial differentiation notation}
+
+The \(\partial\) symbol, typed \verb=\partial= is used to write the standard partial differentiation notation: \(\frac{\partial f}{\partial x}\). 
+
+Hence
+\[
+\frac{\partial}{\partial\theta}(f(x,y))
+\]
+is typed
+\begin{verbatim}
+\[
+\frac{\partial}{\partial\theta}(f(x,y))
+\]
+\end{verbatim}
+
+
+\subsection{Multi-sized symbols}
+
+Some symbols exist in multiple sizes and may also have superscripts and subscripts e.g. \verb=\sum, \prod, \int= which inline look like \(\sum, \ \prod,\ \int\) and displayed look like:
+\[
+\sum, \ \prod,\ \int
+\]
+
+Further examples are listed in the appendices and examples of the use of superscripts and subscripts given below.
+
+\subsubsection{Example: Building up equations with multi-sized symbols}
+
+To write:
+\[
+\sum_{k=1}^n k = \frac{1}{2}n(n+1)
+\]
+we type
+\begin{verbatim}
+\[
+\sum_{k=1}^n k = \frac{1}{2}n(n+1)
+\]
+\end{verbatim}
+
+To write:
+\[
+\bar{x} = \frac{\sum_{i=1}^n x_i}{n}
+\]
+we type
+\begin{verbatim}
+\[
+\bar{x} = \frac{\sum_{i=1}^n x_i}{n}
+\]
+\end{verbatim}
+
+To write:
+\[
+\int_a^b f(u)\frac{du}{dx} dx = \int_{u(a)}^{u(b)} f(u) du
+\]
+we type:
+\begin{verbatim}
+\[
+\int_a^b f(u)\frac{du}{dx} dx = \int_{u(a)}^{u(b)} f(u) du
+\]
+\end{verbatim}
+
+\subsection{Matrices and piecewise function notation}
+
+%Matrices and vectors use brackets which stretch to the height of the contained content. These must be matched and the \left and \right commands signal this matching. Inside these is the array environment. The ccc denotes that this array has three columns and that the content of the cells is centred. Cell content is separated by & and new rows are started with \\
+Use stretchy brackets, the array structure, a separator and new row symbol:
+\begin{verbatim}
+\[
+\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 
+\end{array}\right)
+\]
+\end{verbatim}
+produces
+\[
+\left(\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 
+\end{array}\right)
+\]
+
+We can use dots:
+\begin{verbatim}
+\[
+\left(\begin{array}{ccc}
+1 & \cdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \cdots & 1
+\end{array}\right)
+\]
+\end{verbatim}
+produces
+\[
+\left(\begin{array}{ccc}
+1 & \cdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \cdots & 1
+\end{array}\right)
+\]
+
+%The left and right commands can be used to match other brackets to ensure that the height is correct. Notice also that in this array there are two columns. The first is right aligned and the second is left aligned. 
+If you only need one of the brackets, as in piecewise function notation, then you match with dot to signal the end of the content the bracket must stretch to encompass:
+\begin{verbatim}
+\[
+f(x) = \left\{\begin{array}{rl}
+-x, \ &x < 0\\
+x, \ &x \geq 0
+\end{array}\right.
+\]
+\end{verbatim}
+produces
+\[
+f(x) = \left\{\begin{array}{rl}
+-x, \ &x < 0\\
+x, \ &x \geq 0
+\end{array}\right.
+\]
+
+
+\subsection{Symbol-stack and limits}
+
+%Notice that the first symbol is placed above the second, the size of the symbol on the top of the stack is reduced
+To create a new symbol from two others they can be stacked e.g. 
+\begin{verbatim}
+\[
+\stackrel{x}{\longrightarrow}
+\]
+\end{verbatim}
+produces
+\[
+\stackrel{x}{\longrightarrow}
+\]
+
+\subsubsection{Example: Limit notation}
+
+Limits \emph{are not} built using stackrel:
+\[
+e^x = \lim_{n\rightarrow \infty} \left(1 + \frac{x}{n}\right)^n
+\]
+
+
+\subsection{Numbered equations}
+
+To number and refer to a single equation use the equation environment:
+\begin{verbatim}
+\begin{equation}
+\label{sum1}
+\sum_{k=1}^n k = \frac{1}{2}n(n+1)
+\end{equation}
+\end{verbatim}
+
+This will result in an numbered equation with the number displayed on the right, in brackets.
+\begin{equation}
+\label{sum1}
+\sum_{k=1}^n k = \frac{1}{2}n(n+1)
+\end{equation}
+
+Notice in the above that there is a line \verb=\label{sum1}=. This applied a label to the equation. We can refer to the equation using \verb=\eqref{sum1}=. This command is part of the American Mathematical Society (AMS) packages and so the amsmath package must be included in the preamble for it to function. The equation reference will look like \eqref{sum1}. 
+
+\subsection{Aligned equations}
+
+To align equations use the align environment, alignment points and new-lines:
+\begin{verbatim}
+\begin{align}
+\sum_{k=1}^5 k &= 1 + 2 + 3 + 4 + 5 = 15 \nonumber\\
+\label{sum2}
+&= \frac{1}{2}\cdot 5 \cdot (5+1)
+\end{align}
+\end{verbatim}
+
+This results in:
+\begin{align}
+\sum_{k=1}^5 k &= 1 + 2 + 3 + 4 + 5 = 15 \nonumber\\
+\label{sum2}
+&= \frac{1}{2}\cdot 5 \cdot (5+1)
+\end{align}
+
+Notice that only one of the equations in the multi-line equation is numbered. We have suppressed the numbering on the first line using \verb=\nonumber=. 
+
+We can refer to any labeled and numbered line in the align environment: \eqref{sum2}.
+
+The align* environment works the same way but will not number any line. 
+
+
+%---------------------------Bibliography begins--------------------------
+
+
+\begin{thebibliography}{99}
+\bibitem{latex}
+LaTeX Project, \emph{\LaTeX\ --- A document preparation system}, 
+online at \url{http://www.latex-project.org/}
+
+\bibitem{ctan}
+CTAN, \emph{Comprehensive TeX Archive Network}, online at \url{http://www.ctan.org/}
+
+\end{thebibliography}
+
+%This command forces LaTeX to start a new page:
+\newpage
+
+
+%------------------------------Appendix begins---------------------------
+
+
+\section{Appendix: Commonly used mathematical symbols}
+In this appendix some of the most commonly used mathematical symbols are given. This list is \textbf{not} exhaustive! 
+
+For other symbols you should refer to the comprehensive symbol guide \url{http://www.ctan.org/tex-archive/info/symbols/comprehensive/}. 
+
+The easiest way to find something in this is to use the Detexify website \url{http://detexify.kirelabs.org/classify.html}. On here you draw the single symbol you are trying to use and it will try to recognise it and tell you the code. 
+
+Please note that some symbols require the inclusion of additional \LaTeX~ packages. Below we have noted where symbols require the inclusion of amssymb.
+
+\subsection{Letter-like and miscellaneous symbols}
+
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\bot\) & \verb=\bot= & \(\emptyset\) & \verb=\emptyset= \\
+\(\ell\) & \verb=\ell= & & \\
+\(\exists\) & \verb=\exists= & \(\forall\) & \verb=\forall= \\
+\(\infty\) & \verb=\infty= & \(\lnot\) & \verb=\lnot= \\
+\(\nabla\) & \verb=\nabla= & \(\neg\) & \verb=\neg= \\
+\(\partial\) & \verb=\partial= & \(\prime\) & \verb=\prime= \\
+\(\pounds\) & \verb=\pounds= & \(\top\) & \verb=\top= \\ 
+\(\vert\) & \verb=\vert= & \(\Vert\) & \verb=\Vert= \\
+\hline
+\end{tabular}
+\end{center}
+
+The following require the amssymb package:
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\hbar\) & \verb=\hbar= & \(\nexists\) & \verb=\nexists= \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Accented letters}
+
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Accent & Code & Accent & Code \\
+\hline
+\(\acute{x}\) & \verb=\acute{x}= & \(\bar{x}\) & \verb=\bar{x}= \\
+\(\breve{x}\) & \verb=\breve{x}= & \(\check{x}\) & \verb=\check{x}= \\
+\(\dot{x}\) & \verb=\dot{x}= & \(\ddot{x}\) & \verb=\ddot{x}= \\
+\(\dddot{x}\) & \verb=\dddot{x}= & \(\ddddot{x}\) & \verb=\ddddot{x}= \\
+\(\grave{x}\) & \verb=\grave{x}= & \(\hat{x}\) & \verb=\hat{x}= \\
+\(\mathring{x}\) & \verb=\mathring{x}= & \(\tilde{x}\) & \verb=\tilde{x}= \\
+\(\vec{x}\) & \verb=\vec{x}= & &\\
+\hline
+\end{tabular}
+\end{center}
+
+The \verb=\dddot{x}= and \verb=\ddddot{x}= accents require the amsmath package. 
+
+When placing an accent over the letters \(i\) or \(j\) it is best to use  the "dotless" variants for example,
+\begin{verbatim}
+\bar{\imath} \qquad \bar{\jmath}
+\end{verbatim}
+produces
+\[
+\bar{\imath} \qquad \bar{\jmath}
+\]
+
+\subsubsection{Stretchy accent-like symbols}
+
+There are two stretchy accent-like symbols:
+\begin{verbatim}
+\[
+\widehat{xyz} \quad \text{and} \quad \widetilde{xyz}
+\]
+\end{verbatim}
+which produces
+\[
+\widehat{xyz} \quad \text{and} \quad \widetilde{xyz}
+\]
+
+\subsection{Greek alphabet}
+
+\begin{center}
+\begin{tabular}{|p{0.15\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
+\hline
+Greek letter & \multicolumn{2}{l|}{Lower case} & \multicolumn{2}{l|}{Upper case} \\
+\hline
+Alpha & \verb=\alpha= & \(\alpha\) & \verb=A= & \(A\) \\
+Beta & \verb=\beta= & \(\beta\) & \verb=B= & \(B\) \\
+Gamma & \verb=\gamma= & \(\gamma\) & \verb=\Gamma= & \(\Gamma\) \\
+Delta & \verb=\delta= & \(\delta\) & \verb=\Delta= & \(\Delta\) \\
+Epsilon & \verb=\epsilon= & \(\epsilon\) & \verb=E= & \(E\) \\
+& \verb=\varepsilon= & \(\varepsilon\) & & \\
+Zeta & \verb=\zeta= & \(\zeta\) & \verb=Z= & \(Z\) \\
+Eta & \verb=\eta= & \(\eta\) & \verb=H= & \(H\) \\
+Theta & \verb=\theta= & \(\theta\) & \verb=\Theta= & \(\Theta\) \\
+& \verb=\vartheta= & \(\vartheta\) & & \\
+Iota & \verb=\iota= & \(\iota\) & \verb=I= & \(I\) \\
+Kappa & \verb=\kappa= & \(\kappa\) & \verb=K= & \(K\) \\
+Lambda & \verb=\lambda= & \(\lambda\) & \verb=\Lambda= & \(\Lambda\) \\
+Mu & \verb=\mu= & \(\mu\) & \verb=M= & \(M\) \\
+Nu & \verb=\nu= & \(\nu\) & \verb=N= & \(N\) \\
+Xi & \verb=\xi= & \(\xi\) & \verb=\Xi= & \(\Xi\) \\
+Omicron & \verb=o= & \(o\) & \verb=O= & \(O\) \\
+Pi & \verb=\pi= & \(\pi\) & \verb=\Pi= & \(\Pi\) \\
+& \verb=\varpi= & \(\varpi\) & & \\
+Rho & \verb=\rho= & \(\rho\) & \verb=P= & \(P\) \\
+& \verb=\varrho= & \(\varrho\) & & \\
+Sigma & \verb=\sigma= & \(\sigma\) & \verb=\Sigma= & \(\Sigma\) \\
+& \verb=\varsigma= & \(\varsigma\) & & \\
+Tau & \verb=\tau= & \(\tau\) & \verb=T= & \(T\) \\
+Upsilon & \verb=\upsilon= & \(\upsilon\) & \verb=\Upsilon= & \(\Upsilon\) \\
+Phi & \verb=\phi= & \(\phi\) & \verb=\Phi= & \(\Phi\) \\
+& \verb=\varphi= & \(\varphi\) & & \\
+Chi & \verb=\chi= & \(\chi\) & \verb=X= & \(X\) \\
+Psi & \verb=\psi= & \(\psi\) & \verb=\Psi= & \(\Psi\) \\
+Omega & \verb=\omega= & \(\omega\) & \verb=\Omega= & \(\Omega\)\\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+\subsection{Binary operators}
+
+See also the separate appendix of n-ary operator symbols.
+
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\cap\) & \verb=\cap= & \(\cup\) & \verb=\cup= \\
+\(\dag\) & \verb=\dag= & \(\ddag\) & \verb=\ddag=\\
+\(\div\) & \verb=\div= && \\
+\(\land\) & \verb=\land= & \(\lor\) & \verb=\lor= \\
+\(\mp\) & \verb=\mp= & \(\pm\) & \verb=\pm=\\
+\(\setminus\) & \verb=\setminus= & & \\
+\(\sqcap\) & \verb=\sqcap= & \(\sqcup\) & \verb=\sqcup= \\
+\(\star\) & \verb=\star= & \(\times\) & \verb=\times= \\
+\(\vee\) & \verb=\vee= & \(\wedge\) & \verb=\wedge= \\
+\(\wr\) & \verb=\wr= & & \\
+\hline
+\end{tabular}
+\end{center}
+
+The following symbols require the amssymb package:
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\curlyvee\) & \verb=\curlyvee= & \(\curlywedge\) & \verb=\curlywedge= \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Circle-like operators}
+
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\bullet\) & \verb=\bullet= & \(\cdot\) & \verb=\cdot= \\
+\(\circ\) & \verb=\circ= & & \\
+\(\odot\) & \verb=\odot= & \(\ominus\) & \verb=\ominus= \\ 
+\(\oplus\) & \verb=\oplus= & \(\oslash\) & \verb=\oslash= \\
+\(\otimes\) & \verb=\otimes= & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{N-ary operators and integration}
+
+N-ary operators and integration symbols have two sizes. The smaller is used in inline equations and the larger in displayed equations. In default \LaTeX~ with the amsmath package included limits are displayed as follows:
+\begin{itemize}
+\item Integration-type symbols: limits are placed above and below but to the side. That is \verb=\int_a^b= will look like  
+\(\int_a^b\) within text and be displayed as: 
+\[
+\int_a^b
+\]
+\item Summation-type symbols: limits are placed above and below when displayed but to the side inline. That is, \verb-\sum_{i=1}^{n=\infty}- will look like \(\sum_{i=1}^{n=\infty}\) and be displayed as: 
+\[
+\sum_{i=1}^{n=\infty}
+\]
+\end{itemize}
+
+\begin{center}
+\begin{tabular}
+{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\bigcap\displaystyle\bigcap\) & \verb=\bigcap= & 
+\(\bigcup\displaystyle\bigcup\) & \verb=\bigcup= \\
+\(\bigodot\displaystyle\bigodot\) & \verb=\bigodot= & 
+\(\bigoplus\displaystyle\bigoplus\) & \verb=\bigoplus= \\
+\(\bigotimes\displaystyle\bigotimes\) & \verb=\bigotimes= & 
+\(\bigsqcup\displaystyle\bigsqcup\) & \verb=\bigsqcup= \\
+\(\bigvee\displaystyle\bigvee\) & \verb=\bigvee= & 
+\(\bigwedge\displaystyle\bigwedge\) & \verb=\bigwedge= \\
+\(\coprod\displaystyle\coprod\) & \verb=\coprod= & 
+\(\prod\displaystyle\prod\) & \verb=\prod= \\
+\(\sum\displaystyle\sum\) & \verb=\sum= & & \\
+\(\int\displaystyle\int\) & \verb=\int= & 
+\(\oint\displaystyle\oint\) & \verb=\oint= \\
+\hline
+\end{tabular}
+\end{center}
+
+The following require the amsmath package:
+\begin{center}
+\begin{tabular}
+{|p{0.2\textwidth}p{0.2\textwidth}|p{0.2\textwidth}p{0.2\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\iint\displaystyle\iint\) & \verb=\iint= & 
+\(\iiint\displaystyle\iiint\) & \verb=\iiint= \\
+\(\iiiint\displaystyle\iiiint\) & \verb=\iiiint= &
+\(\idotsint\displaystyle\idotsint\) & \verb=\idotsint= \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\subsection{Brackets and delimiters}
+There are a variety of brackets and delimiters in \LaTeX. These extend to match the size of what they include. The easiest way to do this is using the commands \verb=\left= and \verb=\right=. You can control the size of stretchy symbols by hand but this is not covered in this tutorial or document.
+
+\begin{center}
+\renewcommand{\arraystretch}{3.0}
+\begin{tabular}
+{|p{0.1\textwidth}p{0.7\textwidth}|}
+\hline
+\(\displaystyle\left(\frac{1}{2}\right)\) & \verb=\left(\frac{1}{2}\right)= \\  
+\(\displaystyle\left[\frac{1}{2}\right]\) & \verb=\left[\frac{1}{2}\right]= \\ 
+\(\displaystyle\left\{\frac{1}{2}\right\}\) & \verb=\left\{\frac{1}{2}\right\}= \\  
+\(\displaystyle\left|\frac{1}{2}\right|\) & \verb=\left|\frac{1}{2}\right|= \\  
+\(\displaystyle\left\|\frac{1}{2}\right\|\) & \verb=\left\|\frac{1}{2}\right\|= \\  
+\(\displaystyle\left\lceil \frac{1}{2}\right\rceil\) & \verb=\left\lceil\frac{1}{2}\right\rceil= \\  
+\(\displaystyle\left\lfloor \frac{1}{2}\right\rfloor\) & \verb=\left\lfloor\frac{1}{2}\right\rfloor= \\
+\(\displaystyle\left\langle \frac{1}{2} \right\rangle\) & \verb=\left\langle\frac{1}{2}\right\rangle= \\ 
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Relations}
+
+You may negate any relation by placing \verb=\not= directly before it. For example:
+\begin{verbatim}
+\[
+a < b, a \not< b
+\]
+\end{verbatim}
+produces
+\[
+a < b, a \not< b
+\]
+
+However, in some cases this does not give a good result due to how the symbol interacts with the slash. In these cases there are specially designed negated versions. 
+
+\subsubsection{Equality and order}
+
+The symbols \verb-< = >- can be typed directly.  
+
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\approx\) & \verb=\approx= & \(\asymp\) & \verb=\asymp= \\
+\(\cong\) & \verb=\cong= & \(\equiv\) & \verb=\equiv= \\ 
+\(\ge\) & \verb=\ge= & \(\geq\) & \verb=\geq= \\
+\(\gg\) & \verb=\gg= & & \\
+\(\leq\) & \verb=\leq= & \(\le\) & \verb=\le= \\
+\(\ll\) & \verb=\ll= && \\
+\(\prec\) & \verb=\prec= & \(\preceq\) & \verb=\preceq= \\
+\(\sim\) & \verb=\sim= & \(\simeq\) & \verb=\simeq= \\
+\(\succ\) & \verb=\succ= & \(\succeq\) & \verb=\succeq= \\
+\hline
+\(\ne\) & \verb=\ne= & \(\neq\) & \verb=\neq= \\
+\hline
+\end{tabular}
+\end{center}
+
+The following symbols require the amssymb package:
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\curlyeqprec\) & \verb=\curlyeqprec= & \(\curlyeqsucc\) & \verb=\curlyeqsucc= \\
+\(\geqq\) & \verb=\geqq= & \(\geqslant\) & \verb=\geqslant= \\
+\(\leqq\) & \verb=\leqq= & \(\leqslant\) & \verb=\leqslant= \\
+\hline
+\(\ncong\) & \verb=\ncong= & & \\
+\(\ngeq\) & \verb=\ngeq= & \(\ngeqq\) & \verb=\ngeqq= \\
+\(\ngeqslant\) & \verb=\ngeqslant= & \(\ngtr\) & \verb=\ngtr= \\
+\(\nleq\) & \verb=\nleq= & \(\nleqq\) & \verb=\nleqq= \\
+\(\nleqslant\) & \verb=\nleqslant= & \(\nless\) & \verb=\nless= \\
+\(\nprec\) & \verb=\nprec= & \(\npreceq\) & \verb=\npreceq= \\
+\(\nsim\) & \verb=\nsim= & & \\
+\(\nsucc\) & \verb=\nsucc= & \(\nsucceq\) & \verb=\nsucceq= \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\subsubsection{Sets and inclusion}
+
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\in\) & \verb=\in= & \(\ni\) & \verb=\ni= \\
+\(\sqsubseteq\) & \verb=\sqsubseteq= & \(\sqsupseteq\) & \verb=\sqsupseteq= \\ 
+\(\subset\) & \verb=\subset= & \(\subseteq\) & \verb=\subseteq= \\
+\(\supset\) & \verb=\supset= & \(\supseteq\) & \verb=\supseteq= \\
+\hline
+\(\notin\) & \verb=\notin= & & \\ 
+\hline
+\end{tabular}
+\end{center}
+
+The following symbols require the amssymb package:
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\sqsubset\) & \verb=\sqsubset= & \(\sqsupset\) & \verb=\sqsupset= \\
+\(\subseteqq\) & \verb=\subseteqq= & \(\supseteqq\) & \verb=\supseteqq= \\
+\hline
+\(\nsubseteq\) & \verb=\nsubseteqq= & \(\nsubseteqq\) & \verb=\nsubseteqq= \\
+\(\nsupseteq\) & \verb=\nsupseteq= & \(\nsupseteqq\) & \verb=\nsupseteqq= \\
+\(\subsetneq\) & \verb=\subsetneq= & \(\subsetneqq\) & \verb=\subsetneqq= \\
+\(\supsetneq\) & \verb=\supsetneq= & \(\supsetneqq\) & \verb=\supsetneqq= \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\subsubsection{Arrows}
+
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\downarrow\) & \verb=\downarrow= & \(\Downarrow\) & \verb=\Downarrow= \\ 
+\(\gets\) & \verb=\gets= & & \\
+\(\hookleftarrow\) & \verb=\hookleftarrow= & \(\hookrightarrow\) & \verb=\hookrightarrow= \\
+\(\leftarrow\) & \verb=\leftarrow= & \(\Leftarrow\) & \verb=\Leftarrow= \\
+\(\leftharpoondown\) & \verb=\leftharpoondown= & \(\leftharpoonup\) & \verb=\leftharpoonup= \\
+\(\leftrightarrow\) &\verb=\leftrightarrow= & \(\Leftrightarrow\) & \verb=\Leftrightarrow= \\
+\(\longleftarrow\) & \verb=\longleftarrow= & \(\Longleftarrow\) & \verb=\Longleftarrow= \\
+\(\longleftrightarrow\) & \verb=\longleftrightarrow= & \(\Longleftrightarrow\) & \verb=\Longleftrightarrow= \\
+\(\longmapsto\) & \verb=\longmapsto= && \\
+\(\longrightarrow\) & \verb=\longrightarrow= & \(\Longrightarrow\) & \verb=\Longrightarrow= \\
+\(\mapsto\) & \verb=\mapsto= & & \\
+\(\nearrow\) & \verb=\nearrow= & \(\nwarrow\) & \verb=\nwarrow= \\
+\(\rightarrow\) & \verb=\rightarrow= & \(\Rightarrow\) & \verb=\Rightarrow= \\
+\(\rightharpoondown\) & \verb=\rightharpoondown= & \(\rightharpoonup\) & \verb=\rightharpoonup= \\
+\(\searrow\) & \verb=\searrow= & \(\swarrow\) & \verb=\swarrow=\\
+\(\to\) & \verb=\to= && \\
+\(\uparrow\) & \verb=\uparrow= & \(\Uparrow\) & \verb=\Uparrow= \\
+\(\updownarrow\) & \verb=\updownarrow= & \(\Updownarrow\) & \verb=\Updownarrow= \\
+\hline
+\(\not\) & \verb=\not= && \\
+\hline
+\end{tabular}
+\end{center}
+
+The following symbols require the amssymb package:
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\nleftarrow\) & \verb=\nleftarrow= & \(\nLeftarrow\) & \verb=\nLeftarrow= \\
+\(\nleftrightarrow\) & \verb=\nleftrightarrow= & \(\nLeftrightarrow\) & \verb=\nLeftrightarrow= \\
+\(\nrightarrow\) & \verb=\nrightarrow= & \(\nRightarrow\) & \verb=\nRightarrow= \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Miscellaneous relations}
+
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\bowtie\) & \verb=\bowtie= & \(\dashv\) & \verb=\dashv= \\
+\(\frown\) & \verb=\frown= & \(\mid\) & \verb=\mid= \\
+\(\models\) & \verb=\models= &  \(\parallel\) & \verb=\parallel= \\
+\(\perp\) & \verb=\perp= & \(\propto\) & \verb=\propto= \\
+\(\smile\) & \verb=\smile= & \(\vdash\) & \verb=\vdash= \\
+\hline
+\end{tabular}
+\end{center}
+
+The following symbols require the amssymb package:
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\because\) & \verb=\because= & & \\
+\(\nmid\) & \verb=\nmid= & \(\nparallel\) & \verb=\nparallel=\\
+\(\therefore\) & \verb=\therefore= && \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Mathematical dots}
+
+\begin{center}
+\begin{tabular}{|p{0.1\textwidth}p{0.3\textwidth}|p{0.1\textwidth}p{0.3\textwidth}|}
+\hline
+Symbol & Code & Symbol & Code \\
+\hline
+\(\cdots\) & \verb=\cdots= & \(\ldots\) & \verb=\ldots= \\
+\(\ddots\) & \verb=\ddots= & \(\vdots\) & \verb=\vdots= \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Appendix: Function names}
+
+The following function names already exist in \LaTeX. To write them in math mode simply type backslash followed by the function name e.g. \(\sin\) is written \verb=\sin=
+
+\(\arccos\), \(\arcsin\), \(\arctan\), \(\arg\), \(\cos\), \(\cosh\), \(\cot\), \(\coth\), \(\csc\), \(\deg\), \(\det\), \(\dim\), \(\exp\), \(\gcd\), \(\hom\), \(\inf\), \(\ker\), \(\lg\), \(\lim\), \(\liminf\), \(\limsup\), \(\ln\), \(\log\), \(\max\), \(\min\), \(\Pr\), \(\sec\), \(\sin\), \(\sinh\), \(\sup\), \(\tan\), \(\tanh\)
+
+The modulus function is also available and has two forms: 
+\begin{verbatim}
+a \bmod n, a \pmod n 
+\end{verbatim}
+producing \(a \bmod n\) and \(a \pmod n\) respectively. 
+
+Some of the above functions can have a subscript: \(\det_{a}\), \(\gcd_{a}\), \(\inf_{a}\), \(\lim_{a}\), \(\liminf_{a}\), \(\limsup_{a}\), \(\max_{a}\), \(\min_{a}\), \(\Pr_{a}\), \(\sup_{a}\)
+
+\section{Appendix: Mathematical alphabets}
+
+\subsection{Bold}
+This alphabet is available in upper and lower case:
+\begin{equation*}
+\mathbf{A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z}
+\end{equation*}
+\begin{equation*}
+\mathbf{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z}
+\end{equation*}
+For instance, to produce \(\mathbf{A}\) one would type \verb=\mathbf{A}=.
+
+\subsection{Calligraphic}
+This alphabet is available in upper case only:
+\begin{equation*}
+\mathcal{A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z}
+\end{equation*}
+For instance, to produce \(\mathcal{A}\) one would type \verb=\mathcal{A}=.
+
+\subsection{Script}
+This alphabet is available in upper case only:
+\begin{equation*}
+\mathscr{A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z}
+\end{equation*}
+For instance, to produce \(\mathscr{A}\) one would type \verb=\mathscr{A}=.
+
+\subsection{Fraktur}
+This alphabet is available in upper case only:
+\begin{equation*}
+\mathfrak{A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z}
+\end{equation*}
+For instance, to produce \(\mathfrak{A}\) one would type \verb=\mathfrak{A}=.
+
+\subsection{Blackboard bold}
+This alphabet is available in upper case only:
+\begin{equation*}
+\mathbb{A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z}
+\end{equation*}
+For instance, to produce \(\mathbb{A}\) one would type \verb=\mathbb{A}=.
+
+
+%This command signals the end of the document content. Anything after this command will not be included in the output. Some LaTeX compilers will not compile documents which have anything after the end document command. 
+\end{document}
+

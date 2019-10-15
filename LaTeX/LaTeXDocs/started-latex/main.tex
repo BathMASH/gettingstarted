@@ -1,0 +1,302 @@
+\documentclass[a4paper,12pt]{extarticle}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage[mathscr]{eucal}
+\newcommand{\abs}{\operatorname{abs}}
+
+\title{Getting started with \LaTeX}
+\author{Emma Cliffe}
+\date{}
+\begin{document}
+%\renewcommand{\familydefault}{phv}
+%\fontfamily{phv}\selectfont
+\maketitle
+\tableofcontents
+
+\section{Structuring content}
+
+\subsection{Paragraphs}
+
+This is a first document!
+
+%We can write a comment which does not appear in the output
+We leave white space to create a new paragraph.
+
+\subsection{Changing the font}
+
+We can increase the font size and change the font.
+
+\subsection{Emphasis}
+
+We can emphasize the text using \textbf{bold}, \textit{italics} or \texttt{typewriter font}.
+
+\subsection{Verbatim}
+
+To quote computer code or output from mathematical software use the \verb=\verb= command and verbatim environment:
+\begin{verbatim}
+Layout is
+  preserved.
+\end{verbatim}
+
+\subsection{Lists}
+
+\subsubsection{Bullet point}
+
+\begin{itemize}
+\item Point 1
+\item Point 2
+\begin{itemize}
+\item Sublist
+\end{itemize}
+\end{itemize}
+
+\subsubsection{Numbered}
+
+\begin{enumerate}
+\item Point 1
+\begin{enumerate}
+\item Sublist
+\end{enumerate}
+\item A final point
+\end{enumerate}
+
+\subsection{Tables}
+
+\begin{tabular}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+We can put \begin{itemize}
+\item maths, \item paragraphs, \item lists etc. 
+\end{itemize} in this kind of table --- this is not always the case. 
+& \bigskip More complex behaviour and layout is beyond the scope of this tutorial \\
+\hline
+\begin{verbatim}
+Some verbatim text
+\end{verbatim}
+& \begin{center}
+This will enable you to create basic tables
+\end{center}
+\\
+\hline
+\end{tabular}
+
+\subsection{Images}
+
+This method will work for PDF, JPG and PNG files.
+
+\includegraphics[width=0.8\textwidth]{sigma-logo.png}
+
+\subsection{Citations and bibliography}
+
+To reference we make a citation \cite{latex,ctan} and add the citation information to the bibliography.
+
+\section{Mathematics}
+
+Equations may be within text: \(x\) or displayed on a line alone: \[x+y.\]
+
+\subsection{Basic structures and symbols}
+
+Alphabetic and numerical keyboard characters can be input into equations, also
+\[. , ? ! + - = < > ( ) [ ] |\]
+
+Precede percent symbol, dollar and curly braces with a backslash: \( \% \$ \{ \}\).
+
+\subsubsection{Multiplication symbols}
+
+There are two multiplication symbols you might need:
+\[2\times 3,\ 2\cdot 3\]
+
+\subsubsection{Superscripts and subscripts}
+
+Superscripts use caret and subscripts use underscore:
+\[
+a^{b+c}, \quad (a+b)^{(c+d)}, \qquad a_2, \quad (a+b)_{(i+j)}
+\]
+
+\subsubsection{Fractions}
+
+Fractions use the frac structure:
+\[\frac{1}{2}\]
+
+\subsubsection{Roots}
+
+Roots use the sqrt structure:
+\[
+\sqrt{2}, \quad \sqrt[n]{2}
+\]
+
+\subsubsection{Accents}
+
+You can add accents such as a bar:
+\[\bar{x}\]
+
+\subsubsection{Examples: Building up equations}
+
+\[
+\bar{x}=\frac{x_1+x_2+x_3+x_4+x_5}{5}
+\]
+
+\[
+x = \frac{-b\pm \sqrt{b^2-4ac}}{2a}
+\]
+
+\subsection{A wide range of symbols and functions}
+
+\subsubsection{Symbols}
+
+Type backslash followed by the symbol name e.g.
+\[
+x \leq y
+\]
+
+\subsubsection{Functions}
+
+Type backslash followed by the function name e.g.
+\[
+\sin x, \ \sin^{-1} x
+\]
+
+Not all function names are available. You can create your own...
+\[
+\abs x
+\]
+
+\subsubsection{Greek}
+
+Type backslash followed by the symbol name e.g. 
+\[
+\delta,\ \Delta
+\]
+
+\subsubsection{Mathematical fonts}
+
+Type backslash followed by the name then the letter in braces (upper case only):
+\[
+\mathcal{R},\ \mathscr{R},\ \mathfrak{R},\ \mathbb{R}
+\]
+
+\subsection{Examples: Standard differentiation notation}
+
+Fraction structure is used: \(\frac{df}{dx}\).This automatically enlarges in a display equation:
+\[
+\frac{d}{d\theta}(\sin^{-1}\theta)=\frac{1}{\sqrt{1-\theta^2}}
+\]
+
+\subsubsection{Standard partial differentiation notation}
+
+Use the \(\partial\) symbol: \(\frac{\partial f}{\partial x}\) e.g.
+\[\frac{\partial}{\partial\theta}(f(x,y))\]
+
+\subsection{Multi-sized symbols}
+
+Some symbols exist in multiple sizes and may also have superscripts and subscripts e.g. \(\sum, \ \prod, \ \int\)
+\[
+\sum, \ \prod, \ \int
+\]
+
+\subsubsection{Example: Building up equations with multi-sized symbols}
+
+\[\sum_{k=1}^n = \frac{1}{2}n(n+1)\]
+
+\[\bar{x} = \frac{\sum_{i=1}^n x_i}{n}\]
+
+\[\int_a^b f(u)\frac{du}{dx}dx = \int_{u(a)}^{u(b)}f(u)\, du\]
+
+\subsection{Matrices and piecewise function notation}
+
+Use stretchy brackets, the array structure, a separator and new row symbol:
+\[
+\left(
+\begin{array}{ccc}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array}
+\right)
+\]
+
+We can use dots:
+\[
+\left(
+\begin{array}{ccc}
+1 & \cdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \cdots & 1
+\end{array}
+\right)
+\]
+
+If you only need one of the brackets then match with 'dot':
+\[
+f(x) = \left\{\begin{array}{rl}
+-x, \ &x < 0 \\
+x, \ &x \geq 0
+\end{array}
+\right.
+\]
+
+\subsection{Symbol-stack and limits}
+
+To create a new symbol from two others they can be stacked e.g.
+\[
+\stackrel{x}{\longrightarrow}
+\]
+
+\subsubsection{Example: Limit notation}
+
+Limits are \emph{not} build using stackrel e.g. 
+\[
+e^x = \lim_{n\rightarrow \infty} \left(1 + \frac{x}{n}\right)^n
+\]
+
+\subsection{Numbered equations}
+
+To number and refer to a single equation use the equation environment:
+\begin{equation}
+\label{sum1}
+\sum_{k=1}^n k = \frac{1}{2}n(n+1)
+\end{equation}
+
+We can refer to the equation \eqref{sum1}.
+
+\subsection{Aligned equations}
+
+To align equations use the align environment, alignment points and new-lines:
+\begin{align}
+\sum_{k=1}^5 k &= 1 + 2 + 3 + 4 + 5 = 15\nonumber\\
+\label{sum2}
+&=\frac{1}{2}\cdot 5 \cdot (5+1)
+\end{align}
+
+We can refer to any labeled and numbered line in the align environment: \eqref{sum2}.
+
+The align* environment works the same way but will not number any line.
+
+\begin{thebibliography}{99}
+\bibitem{latex}
+LaTeX Project, \emph{\LaTeX\ --- A document preparation system},
+online at \url{http://www.latex-project.org/}
+
+\bibitem{ctan}
+CTAN, \emph{Comprehensive TeX Archive Network}, online at \url{http://www.ctan.org/}
+\end{thebibliography}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

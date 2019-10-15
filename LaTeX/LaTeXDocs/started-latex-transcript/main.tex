@@ -1,0 +1,270 @@
+%------------------------------Preamble begins---------------------------
+\documentclass[a4paper,14pt]{extarticle}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\title{
+\includegraphics[width=\textwidth]{top-2colsgreen-community}
+\\
+Getting started with \LaTeX~transcript}
+\author{\copyright ~ Emma Cliffe, University of Bath}
+\date{}
+
+%------------------------------Premable ends-----------------------------
+
+\begin{document}
+
+%---------------------------------Title begins---------------------------
+
+\renewcommand{\familydefault}{phv}
+\fontfamily{phv}\selectfont
+\maketitle
+
+Reviewer:\qquad Calvin James Smith, University of Reading
+
+\begin{center}
+\includegraphics[width=0.25\textwidth]{by-nc-sa_eu}
+\url{www.mathcentre.ac.uk}
+\end{center}
+
+%----------------------Table of contents begins--------------------------
+
+\tableofcontents
+
+%-------------------------------Content begins---------------------------
+
+\section{Title slide}
+
+Getting started with \LaTeX~, a typesetting system designed for the production of technical and scientific documents.
+
+\section{About this resource slide}
+
+This resource will enable you to get started producing short documents. The completed example and a reference document, containing extended information and symbols, are provided. 
+
+\section{\LaTeX~ online slide}
+
+It is easier to get started with \LaTeX~ using an online editor such rather than installing a \LaTeX~ system. 
+
+\subsection{\LaTeX~ online content}
+
+Online editors such as OverLeaf and ShareLatex enable you to get started and collaborate easily, have free accounts sufficient for short documents and student discounts. We will use Overleaf which has a rich text view which can also help when getting started. 
+
+It is recommended you sign up for a free account and then follow along, pausing as required.
+
+Once you have signed in click on create new project and then on a blank project. The editor will then open.
+
+\section{Structuring content slide}
+
+First we will create a basic text document.
+
+\subsection{Structuring content content}
+
+Documents start with the document class command. We will use class article with optional commands a4paper and 12pt font. We must then insert the document environment using begin and end. Everything within this environment is part of the document.We see a preview of the document on the right. 
+
+Title, author and date are defined before the start of the document. To include these in the document we use the maketitle command within the document environment. This appears in our preview. 
+
+To control the margins we use the geometry package. All usepackage commands are inserted in the preamble, that is, before the  begin document command.
+
+Structure is added within the document using section and subsection commands. 
+
+To create a new paragraph we leave a blank line. By default paragraphs are indented and without white space. To change this we use the parskip package. This goes in the preamble before the document begins. 
+
+Comments start with a percent symbol. They will not appear in the final document. 
+
+A table of contents is automatically generated using the sectioning commands. We place the command within the document environment. 
+
+To add hyperlinks to the table of contents we use the hyperref package. This goes in the preamble before the document begins.
+
+We can increase the font size by changing the document class to extarticle. In this class sizes 8, 9, 10, 11, 12, 14, 17 and 20pt are available. 
+
+Some people find the standard font hard to read. We will change to a clearer font called Helvetica for now. The first command, inserted immediately after the document begins, changes font in the section titles. A second sequence of two commands changes the rest of the fonts. Watch and copy these carefully. 
+
+We can add emphasis to text by using the textbf command for bold, textit command for italics or texttt for typewritter font.
+
+However, for quoting computer code or output from mathematical software you should use verbatim commands, not typewritter font. Slash verb quotes verbatim text in between matching symbols such as equals. We now meet a new environment, starting with begin verbatim and ending with end verbatim. Text within this environment is quoted exactly, including layout. 
+
+\section{Structuring content slide 2}
+
+Now we add lists, a table, image and bibliography to our document. 
+
+\subsection{Structuring content content 2}
+
+The itemize environment creates a bullet point list. Note the American spelling. Each list item starts with slash item. We can insert an itemize environment inside the first to create a sublist. 
+
+Numbered lists use the enumerate environment instead of itemize. 
+
+There are many ways to create tables in LaTeX, depending on what structure is needed. We demonstrate a single, fairly robust method using the tabular environment to get you started. After the begin command, in braces, an argument defines how the columns will be structured. The vertical bars create vertical borders in the table. Each p followed by a width in braces defines cells in a column to be paragraphs of width 0.45 times the text width.
+
+Slash hline creates a horizontal border. 
+
+Cells containing paragraphs are robust and can include environments such as lists. Ampersand denotes the end of the cell. Slash slash the end of the row. Paragraph cells can also include spacing commands and the centre environment. Other LaTeX tables may not be so robust but allow complex layouts. 
+
+Adding hline between rows creates a horizontal line within the table. 
+
+There is a variety of ways to include images in LaTeX, depending on what is required. We demonstrate a single, fairly robust method to get you started. This will work for PDF, JPG and PNG files. 
+
+We add the graphicx package to the preamble. 
+
+In Overleaf click on project then on the down arrow and select Upload from Computer to upload the image file. It appears in the file list. We include the image using the command includegraphics. The required argument, in braces, is the filename of the image. The optional argument, in square brackets, controls the width of the image in the final document. It is easiest to specify this as a multiple of the textwidth. 
+
+Click on Project again to close the file list. 
+
+To include a citation in the text use the command cite. Each bibliography entry will be given an item name. The cite command uses these item names.
+
+We include a simple bibliography, enough for getting started. This sort of bibliography is contained within a specialist environment called thebibliography. The required argument 99 enables 1 or 2 digit bibliography labels.
+
+Each item begins with bibitem then the item name in braces. We define entries for items latex and ctan. 
+
+\section{Mathematics slide}
+
+We will now see how to include equations in basic documents. 
+
+\subsection{Mathematics content}
+
+We add packages useful for mathematics in the preamble. Packages starting with ams are produced by the American Mathematics Society and contain structures and symbols. Eucal provides a script font. 
+
+Equations can be within the text, using slash round brackets, or displayed on a line alone, using slash square brackets. 
+
+It is convention to space out input of equations displayed on a line alone to improve readability. 
+
+Many authors add further white space. 
+
+All three methods produce equivalent output but the latter two are easier to read. You will see both used below.  
+
+\section{Basic structures and symbols slide}
+
+Basic structures and symbols include superscripts, subscripts, fractions, roots and accents.
+
+\subsection{Basic structures and symbols content}
+
+Alphabet, numbers and symbols displayed can be entered directly. The percent symbol, dollar and curly braces must be preceded with backslash. 
+
+Our first example commands are multiplication symbols. Symbols start with backslash followed by the name times or cdot. Slash space is used to include extra white space.  
+
+Superscripts are produced using caret and subscripts using underscore. Brackets contain multiple symbols to be raised or lowered. These are part of the structure. Slash quad and qquad include wider portions of white space. 
+
+Notice the compile error. There is a bad math delimiter on line 115. Looking carefully I see that I have closed the maths delimiter twice. Removing one fixes the error.  
+
+Fractions are produced using the frac structure which contains the numerator, in braces, and then the denominator, in braces. 
+
+Roots use the sqrt structure. The argument is given in braces. It is optional to supply an index in square brackets. 
+
+Accents, such as bar, are produced using backslash followed by the accent name then the argument in braces. For a list of accents see the accompanying reference document. 
+
+\section{Examples of building up equations slide}
+
+We will see two examples of building up equations. 
+
+\subsection{Examples of building up equations content}
+
+First a mean without summation symbol. Type x bar as before. The fraction structure is input, the numerator filled and then the denominator. In Overleaf, though not in most \LaTeX~ editors, it is possible to view the input as 'Rich Text'. When you are getting started with equations this can be helpful. By moving the cursor out of the equation we can check what an equation looks like, even part way through.
+
+The quadratic equation uses the fraction structure, the command pm for plus-minus and the root structure. Let us see what this looks like by moving the cursor out of the equation. Now I complete the denominator. 
+
+\section{A wide range of symbols and functions slide}
+
+A wide range of symbols, functions and mathematical alphabets can be typed. 
+
+\subsection{A wide range of symbols and functions content}
+
+Symbols are typed using backslash then the symbol name such as leq for less than or equal to. For information about the range of commands see the accompanying reference document. 
+
+Functions are typed using backslash then the function name such as sin. You can add your own functions. In the preamble use newcommand with the first required argument your new function command and the second slash operatorname with argument the string you wish to appear. The function name abs will now be recognised. Newcommand has other uses beyond the scope of this introduction.  
+
+Greek letters are input by typing backslash followed by the name of the Greek letter. If you capitalise the name you will input the upper case Greek letter.
+
+Upper case calligraphic, script, fraktur and double struck alphabets are available. Type backslash then the alphabet name then the letter required in braces. 
+
+\section{Further examples of building up equations slide}
+
+We will build some further examples using the fraction structure. 
+
+\subsection{Further examples of building up equations content}
+
+Fraction structure is used to input differentiation notation. Notice how fraction structures are automatically sized appropriately in inline and display equations. 
+
+We use a fraction and a Greek letter to form this differential operator. Switching to 'Rich Text' may help you see what you are doing part way through an equation though notice that in Overleaf a preview of the output also updates over time on the right. 
+
+\subsection{Repeat of last slide for context}
+
+Partial differentiation notation uses the fraction structure and the partial symbol. 
+
+We move the cursor in Rich Text view to see part of the equation. With practise you will not require this and some \LaTeX~ editors do not provide such previews. 
+
+\section{Multi-sized symbols slide}
+
+Multi-sized symbols include summation, product and integral symbols.
+
+\subsection{Multi-sized symbols content}
+
+Some Symbols change size to fit the context and may also have superscripts and/or subscripts. This includes sum, int and prod. For others see the reference document. 
+
+Here the sum structure has a subscript and superscript. These are automatically placed above and below in the large version of the symbol. 
+
+In this example the sum symbol is reduced in size with scripts to the right so as to be accommodated within the fraction structure. 
+
+Watch carefully in this example. Scripts applied to integrals are placed to the right by default. It is important to remember brackets for subscripts and superscripts which contain more than one symbol. Some authors prefer to add a small amount of space into the integral notation. Slash comma provides the right amount. 
+
+\section{Matrices and piecewise functions slide}
+
+Aligned arrays of symbols and stretchy brackets. 
+
+\subsection{Matrices and piecewise functions content}
+
+When in 'Rich Text' mode it is possible to add in section headings etc using the buttons. We will return to the source as in most systems 'Rich Text' is not available. 
+
+Stretchy brackets are produced using slash left and slash right before brackets. These then stretch to encompass the height of the included content. For a matrix use the array environment, in this case with three centred columns. Ampersand separates elements within rows and slash slash starts a new row. 
+
+We can use cdots for a line of centred dots, vdots for a vertical line of dots and ddots for a diagonal line of dots. 
+
+A piecewise function requires a single stretched brace on the left and aligned content. The command slash right dot marks the end of the content the braces needs to stretch to encompass. In this case the array has a right aligned column followed by a left aligned column. 
+
+\section{Symbol-stack and limits slide}
+
+Stacking symbols vertically. 
+
+\subsection{Symbol-stack and limits content}
+
+To create a new symbol from two others they may be stacked using the command stackrel. The first required argument is place above the second. The size of the first symbol is automatically adjusted as appropriate. Although this is useful it should not be used for subscripts of functions. For these subscript notation is used and placed appropriately. 
+
+\section{Numbered equations and equation references slide}
+
+To refer to an equation in text we need to number it. 
+
+\subsection{Numbered equations and equation references content}
+
+To number a single equation use the equation environment. To refer to the equation in the text a label command is inserted before the numbered equation. Each equation should be labelled differently. To refer to the equation in text, assuming the amsmath package is available, use eqref. 
+
+\section{Aligned equations slide}
+
+Multi-line, aligned equations, using the amsmath package
+
+\subsection{Aligned equations content}
+
+To create aligned, multi-line equations use the align environment (provided by the amsmath package). By default equations are numbered and if no alignment points are specified, are right aligned. Adding an ampersand on each line marks an alignment point. Adding nonumber to a line removes the equation numbering from that line. Labels can be added above any numbered equations and these can be referred to as before. 
+
+To align without any numbering use the align* environment instead. 
+
+\section{\LaTeX~ online slide}
+
+The document is finished, what now? 
+
+\subsection{\LaTeX~ online content}
+
+Using \LaTeX~ online provides us with a quick preview of the finished document. This is not always possible in a \LaTeX~ system. Checking this I see that I have mis-numbered section 2.2, which should be 2.2.1. I can find this and change the subsection command to a subsubsection command. \LaTeX~ fixes all the numbering for me. 
+
+In Overleaf settings for the document and your account can be changed using the cog button. I can change the document name and alter the editor fontsize, for instance. 
+
+Once I have finished a document I may wish to download all of the associated files --- perhaps to use in another \LaTeX~ system. Click on Project and then on Download as ZIP. Instead I might leave my document stored on Overleaf but download just the final PDF. Opening this we see the finished article. 
+
+However, earlier I altered the font so it was clearer for my own use. I can comment out the font change and change the font to 12pt and then download a new PDF. 
+
+Finally, when getting started with \LaTeX~ online using a service such as Overleaf or ShareLaTeX there is plenty of help available. 
+
+\section{Final slide}
+
+For further information please see the accompanying template and reference document. 
+
+\end{document}
+
